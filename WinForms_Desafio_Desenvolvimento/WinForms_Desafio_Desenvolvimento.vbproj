@@ -14,6 +14,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -81,6 +96,7 @@
     </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -103,47 +119,56 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackEnd\clsDados.vb" />
-    <Compile Include="frmChamadosEditar.Designer.vb">
+    <Compile Include="Dados\dsChamados.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsChamados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\dsDepartamentos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDepartamentos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmChamadosEditar.Designer.vb">
       <DependentUpon>frmChamadosEditar.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmChamadosEditar.vb">
+    <Compile Include="Formularios\frmChamadosEditar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChamadosListar.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmChamadosListar.Designer.vb">
+    <Compile Include="Formularios\frmChamadosListar.Designer.vb">
       <DependentUpon>frmChamadosListar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmChamadosListar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChamadosRelatorio.Designer.vb">
+    <Compile Include="Formularios\frmChamadosRelatorio.Designer.vb">
       <DependentUpon>frmChamadosRelatorio.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmChamadosRelatorio.vb">
+    <Compile Include="Formularios\frmChamadosRelatorio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDepartamentosEditar.Designer.vb">
+    <Compile Include="Formularios\frmDepartamentosEditar.Designer.vb">
       <DependentUpon>frmDepartamentosEditar.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmDepartamentosEditar.vb">
+    <Compile Include="Formularios\frmDepartamentosEditar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDepartamentosListar.Designer.vb">
+    <Compile Include="Formularios\frmDepartamentosListar.Designer.vb">
       <DependentUpon>frmDepartamentosListar.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmDepartamentosListar.vb">
+    <Compile Include="Formularios\frmDepartamentosListar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDepartamentosRelatorio.Designer.vb">
+    <Compile Include="Formularios\frmDepartamentosRelatorio.Designer.vb">
       <DependentUpon>frmDepartamentosRelatorio.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmDepartamentosRelatorio.vb">
+    <Compile Include="Formularios\frmDepartamentosRelatorio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.vb">
+    <Compile Include="Formularios\frmPrincipal.Designer.vb">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.vb">
+    <Compile Include="Formularios\frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -161,40 +186,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Relatorios\dsChamados.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsChamados.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Relatorios\dsChamados.vb">
-      <DependentUpon>dsChamados.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Relatorios\dsDepartamentos.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsDepartamentos.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmChamadosEditar.resx">
+    <EmbeddedResource Include="Formularios\frmChamadosEditar.resx">
       <DependentUpon>frmChamadosEditar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChamadosListar.resx">
+    <EmbeddedResource Include="Formularios\frmChamadosListar.resx">
       <DependentUpon>frmChamadosListar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChamadosRelatorio.resx">
+    <EmbeddedResource Include="Formularios\frmChamadosRelatorio.resx">
       <DependentUpon>frmChamadosRelatorio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDepartamentosEditar.resx">
+    <EmbeddedResource Include="Formularios\frmDepartamentosEditar.resx">
       <DependentUpon>frmDepartamentosEditar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDepartamentosListar.resx">
+    <EmbeddedResource Include="Formularios\frmDepartamentosListar.resx">
       <DependentUpon>frmDepartamentosListar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDepartamentosRelatorio.resx">
+    <EmbeddedResource Include="Formularios\frmDepartamentosRelatorio.resx">
       <DependentUpon>frmDepartamentosRelatorio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
+    <EmbeddedResource Include="Formularios\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -207,10 +219,17 @@
     <EmbeddedResource Include="Relatorios\rptDepartamentos.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\DesafioDB.db">
-      <Link>Dados\DesafioDB.db</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Imagens\chamados.png" />
+    <Content Include="Imagens\cross.png" />
+    <Content Include="Imagens\departamentos.png" />
+    <Content Include="Imagens\disk.png" />
+    <Content Include="Imagens\document.png" />
+    <Content Include="Imagens\door-open-in.png" />
+    <Content Include="Imagens\folder-horizontal-open.png" />
+    <Content Include="Imagens\Netspeed.ico" />
+    <Content Include="Imagens\Netspeed_Logotipo.png" />
+    <Content Include="Imagens\printer.png" />
+    <Content Include="Imagens\TitleBar.jpg" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -225,6 +244,29 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Dados\DesafioDB.db" />
+    <None Include="Dados\dsChamados.xsc">
+      <DependentUpon>dsChamados.xsd</DependentUpon>
+    </None>
+    <None Include="Dados\dsChamados.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsChamados.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dados\dsChamados.xss">
+      <DependentUpon>dsChamados.xsd</DependentUpon>
+    </None>
+    <None Include="Dados\dsDepartamentos.xsc">
+      <DependentUpon>dsDepartamentos.xsd</DependentUpon>
+    </None>
+    <None Include="Dados\dsDepartamentos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDepartamentos.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dados\dsDepartamentos.xss">
+      <DependentUpon>dsDepartamentos.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -236,34 +278,24 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Relatorios\dsChamados.xsc">
-      <DependentUpon>dsChamados.xsd</DependentUpon>
-    </None>
-    <None Include="Relatorios\dsChamados.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsChamados.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Relatorios\dsChamados.xss">
-      <DependentUpon>dsChamados.xsd</DependentUpon>
-    </None>
-    <None Include="Relatorios\dsDepartamentos.xsc">
-      <DependentUpon>dsDepartamentos.xsd</DependentUpon>
-    </None>
-    <None Include="Relatorios\dsDepartamentos.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsDepartamentos.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Relatorios\dsDepartamentos.xss">
-      <DependentUpon>dsDepartamentos.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Netspeed.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
